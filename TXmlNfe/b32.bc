@@ -1,0 +1,35 @@
+-I"C:\bcc582\include;C:\xhb121\include;C:\fwh1109\include;;" +
+-L"C:\bcc582\lib;C:\bcc582\lib\psdk;C:\xhb121\lib;C:\fwh1109\lib;;;;;" +
+-aa +
+-Gn -Tpe -s +
+c0w32.obj +    
+"C:\Sistemas Fivewin\TXmlNfe\obj\MAIN.obj"  + 
+"C:\Sistemas Fivewin\TXmlNfe\obj\TXmlNFe.obj"  + 
+"C:\Sistemas Fivewin\TXmlNfe\obj\W32OLE.obj", + 
+"C:\Sistemas Fivewin\TXmlNfe\DownloadXMLNFe.EXE", +   
+"C:\Sistemas Fivewin\TXmlNfe\DownloadXMLNFe.map", +   
+FiveHx.lib FiveHC.lib +
+rtl.lib +      
+vm.lib +       
+gtgui.lib + 
+lang.lib +     
+macro.lib +    
+rdd.lib +      
+codepage.lib + 
+dbfntx.lib +   
+dbffpt.lib +   
+hbsix.lib +    
+common.lib +   
+pp.lib +       
+"C:\xhb121\lib\ct.lib" +  
+"C:\xhb121\lib\dbfcdx.lib" +  
+"C:\xhb121\lib\pcrepos.lib" +  
+"C:\bcc582\Lib\PSDK\psapi.lib" +  
+"C:\xhb121\lib\tip.lib" +  
+cw32.lib +     
+import32.lib + 
+nddeapi.lib +
+iphlpapi.lib +
+rasapi32.lib +
+,
+"C:\Sistemas Fivewin\TXmlNfe\res\res.res" + 

@@ -1,0 +1,402 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Portal da Nota Fiscal Eletrônica
+</title>
+
+    <!-- CSS -->
+    <link href="css/geral.css" rel="stylesheet" type="text/css" /><link href="css/classes.css" rel="stylesheet" type="text/css" /><link href="css/paginasInternas.css" rel="stylesheet" type="text/css" /><link href="css/estilo_visualizacao.css" rel="stylesheet" type="text/css" />
+    
+
+    <!-- Javascript -->
+    <script src="scripts/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="scripts/menu.js" type="text/javascript"></script>
+    <script src="scripts/mascaras.js" type="text/javascript"></script>
+    <script src="//www.receita.fazenda.gov.br/estatistica/estatistica.js" type="text/javascript"></script>
+    <script src="scripts/captcha-som.js" type="text/javascript"></script>
+
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, Post-Check=0, Pre-Check=0" /><meta http-equiv="pragma" content="no-cache" /><meta http-equiv="expires" content="0" />
+      <script type="text/javascript">
+          function ObterID_E_TocarSom() {
+              var campo = document.getElementById('ctl00_ContentPlaceHolder1_captchaSom');
+              play_sound(campo.id);
+        }
+       </script>
+  </head>
+<body onselectstart="return true;">
+    <div id="barra-brasil" style="background: #7F7F7F; height: 20px; padding: 0 0 0 10px; display: block;">
+        <ul id="menu-barra-temp" style="list-style: none;">
+            <li style="display: inline; float: left; padding-right: 10px; margin-right: 10px; border-right: 1px solid #EDEDED">
+                <a href="http://brasil.gov.br" style="font-family: sans,sans-serif; text-decoration: none; color: white;">Portal do Governo Brasileiro</a></li>
+            <li><a style="font-family: sans,sans-serif; text-decoration: none; color: white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
+        </ul>
+    </div>
+    <script src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
+
+    
+
+
+    <div id="divCentral">
+        <form name="aspnetForm" method="post" action="./consulta.aspx?tipoConsulta=completa&amp;tipoConteudo=XbSeqxE8pl8%3d" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzM3NTgyNjMxD2QWAmYPZBYCAgMPZBYQAgkPDxYCHgRUZXh0BQ8xNCw1OTYgYmlsaMO1ZXNkZAINDw8WAh8ABQ4xLDMzOCBtaWxow7Vlc2RkAg8PDxYCHgtOYXZpZ2F0ZVVybAUVaW5mb0VzdGF0aXN0aWNhcy5hc3B4ZGQCEw8PFgIfAQXgAWh0dHBzOi8vd3d3MS5zcGVkLmZhemVuZGEuZ292LmJyL3NjcmlwdHMvc2NhZWYvbG9naW4vbG9naW4uYXNwP1VSTD0vc3BlZG5mZWFjZXNzby9hcm5mZS9pbmljaWFsL2RlZmF1bHQuYXNweCZTaXN0ZW1hPVNQRURORmUlMjBQb3J0YWwmVVJMQ2VydD0vc2NyaXB0cy9zY2FlZi9sb2dpbi9BYnJlQ2VydGlmaWNhZG8vZGVmYXVsdC5hc3AmVVJMU2NhZWY9L3NjcmlwdHMvc2NhZWYvc2NhZWYuZGxsZGQCFw8PFgIfAQUycGVyZ3VudGFzRnJlcXVlbnRlcy5hc3B4P3RpcG9Db250ZXVkbz00N0ZJbzcyejk5cz1kZAInDzwrABEDAA8WBB4LXyFEYXRhQm91bmRnHgtfIUl0ZW1Db3VudAIEZAEQFgAWABYADBQrAAAWAmYPZBYMZg8PFgIeB1Zpc2libGVoZGQCAQ9kFgJmD2QWAgIBDw8WBh4NQWx0ZXJuYXRlVGV4dAUrTWFuaWZlc3RvIEVsZXRyw7RuaWNvIGRlIERvY3VtZW50b3MgRmlzY2Fpcx4PQ29tbWFuZEFyZ3VtZW50BSRodHRwczovL21kZmUtcG9ydGFsLnNlZmF6LnJzLmdvdi5ici8eCEltYWdlVXJsBR1+L2ltYWdlbnMvYmFubmVyX21kZmVfT2ZmLnBuZxYCHgV0aXRsZQUrTWFuaWZlc3RvIEVsZXRyw7RuaWNvIGRlIERvY3VtZW50b3MgRmlzY2Fpc2QCAg9kFgJmD2QWAgIBDw8WBh8FBSZDb25oZWNpbWVudG8gZGUgVHJhbnNwb3J0ZSBFbGV0csO0bmljbx8GBR1odHRwOi8vd3d3LmN0ZS5mYXplbmRhLmdvdi5ich8HBSR+L2ltYWdlbnMvYmFubmVyc19WaXNpdGVfQ1RlX09mZi5wbmcWAh8IBSZDb25oZWNpbWVudG8gZGUgVHJhbnNwb3J0ZSBFbGV0csO0bmljb2QCAw9kFgJmD2QWAgIBDw8WBh8FBSlTaXN0ZW1hIFDDumJsaWNvIGRlIEVzY3JpdHVyYcOnw6NvIEZpc2NhbB8GBSNodHRwOi8vd3d3MS5yZWNlaXRhLmZhemVuZGEuZ292LmJyLx8HBSV+L2ltYWdlbnMvYmFubmVyc19WaXNpdGVfU3BlZF9PZmYucG5nFgIfCAUpU2lzdGVtYSBQw7pibGljbyBkZSBFc2NyaXR1cmHDp8OjbyBGaXNjYWxkAgQPZBYCZg9kFgICAQ8PFgYfBQUqU3VwZXJpbnRlbmTDqm5jaWEgZGEgWm9uYSBGcmFuY2EgZGUgTWFuYXVzHwYFGmh0dHA6Ly93d3cuc3VmcmFtYS5nb3YuYnIvHwcFIH4vaW1hZ2Vucy9iYW5uZXJzX21hbmF1c19PZmYucG5nFgIfCAUqU3VwZXJpbnRlbmTDqm5jaWEgZGEgWm9uYSBGcmFuY2EgZGUgTWFuYXVzZAIFDw8WAh8EaGRkAjMPZBYEAgEPDxYCHwAFF0NvbnN1bHRhciBORi1lIENvbXBsZXRhZGQCAw9kFgQCAQ9kFgQCAQ9kFgICAQ9kFghmD2QWAgIDDw9kFggeCk9uS2V5UHJlc3MFGW1hc2NhcmEodGhpcyxzb051bWVyb3M0NCkeB29uRm9jdXMFGW1hc2NhcmEodGhpcyxzb051bWVyb3M0NCkeBm9uQmx1cgUZbWFzY2FyYSh0aGlzLHNvTnVtZXJvczQ0KR4Ib25DaGFuZ2UFGW1hc2NhcmEodGhpcyxzb051bWVyb3M0NClkAgEPZBYCAgMPD2QWCB8JBRltYXNjYXJhKHRoaXMsc29OdW1lcm9zNDQpHwoFGW1hc2NhcmEodGhpcyxzb051bWVyb3M0NCkfCwUZbWFzY2FyYSh0aGlzLHNvTnVtZXJvczQ0KR8MBRltYXNjYXJhKHRoaXMsc29OdW1lcm9zNDQpZAICD2QWAgILDxBkZBYAZAIDD2QWAgILDxBkZBYAZAIDD2QWCAIHDw8WAh4PVmFsaWRhdGlvbkdyb3VwBQhjb21wbGV0YWRkAgkPDxYCHw0FCGNvbXBsZXRhZGQCCw8PFgIfDQUIY29tcGxldGFkZAIPDw8WAh8NBQhjb21wbGV0YWRkAgMPZBYEAgEPDxYEHwcFuj5kYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUxRQUFBQXlDQVlBQUFEMUpQSDNBQUFBQVhOU1IwSUFyczRjNlFBQUFBUm5RVTFCQUFDeGp3djhZUVVBQUFBSmNFaFpjd0FBRHNNQUFBN0RBY2R2cUdRQUFCYnZTVVJCVkhoZTdaMVhxSjFWRnNldkdpdTJFQkViS2hwRnNKZW9HSHZIRGhwN0pYYXhpelZxMUtCUlFmT2dPTEdPSXFOSWpBUU5HUXM0Rmd3cVRCTG1RWDFLZklvUEEzbVlCeC9tNFp2ejI3bi80enJycnIyL2NzNTFaSmcvTE03NXZtK1h0VmZiYSs5dm4zdkhwazJidG1wc2JLejZQLzEzYU9yVXFldW1UNSsrR3RwcHA1M1c3cm5ubm10MGZkcHBweTJmTld2VzN5d2RjOHd4ZjU4OWUvWmZGeTVjK0dkUHp6enp6RitXTEZueVVsVlZjN3NTN2F4YnQyNmV2ODg5OWZQenp6L1A5OCtia3RxNTZhYWJsczZaTTJjUlk1b3hZOFkvR08rVUtWUCtIY2xveXkyMy9OZk1tVE5YZlBQTk53dWlOaTFoMFAvMERXeXd3UWJWWnB0dE5uRHZmNUYyMzMzMzZ2ampqNitsbm1IMTYxeDAwVVhWbzQ4KzJxZXJycnFxK3Zqamo2dlBQLzg4cEI5KytLRW41M3E4OGNZYnFmMm5ubnBxL001RVBQLzg4NmtNWlNOd0g1NjZvc1FENDlDWVY2eFlNWDUzUFJqbnI3LytPbjVWRDhxWHhzRTQ3Ny8vL3VxZ2d3NUs1U3hkZlBIRkUvb1hWcTllWFkzMVB1ZCs5OTEzMVNXWFhGSnR0ZFZXRXhxQWR0eHh4K3E0NDQ2clB2end3L1UxTTZBanE4ekpvcEtSOUNKQUV2cFhYMzFWTFYrK2ZQeHVjNkFZMnJENDRJTVArcko0NlNVQzRIcTgrT0tMNlY3SkNKdENmS09VQ0RJMjZObG5ueDIvK3h1b2p4NjdqRm1vNHlGQ3lRbHllT2VkZDFJZEROY0QvZkpNeHI1MjdkcFUzaHMzaG0yZENOdEx6M3JmQ2RWOXJGeTVzanIvL1BPcmJiYlpacUFCUzBTdCsrNjdyM3I2NmFlck5XdldqTmRjRHhocTQ2MS9OR0M4S05VREFXUE1kbXhmZnZsbGRjTU5ON1F5Z0s3QTJNNCsrK3drL3h4LzBmMWgwRVNYY29KVnExYWw4bHpYZ1RaeGdLaHNuYkZqZTdMREk0ODhzdDlHUCtqMHZzK2xnNmh4clA2Q0N5N0lSbTRSVS9kNTU1MVhuWHZ1dWVtNmx4K050ekE4NEFzdi9iM1ExRERncTZrQ1J3WDZnamM1RVBwUlJPYmVNTkhabzIza2hSZDRhOHNEWTdJeUxCbTdBRzlLaVluY2trZml1ZmM1TjRwSzNzZ3BjK21sbDFZYmI3eHgzNURyYUo5OTlrbUdEb01vSDlnQjJPODVkSWs4RExCcDd1cUI4NkFjRHkrUHJnb2NGWll0VzlhWE16SWFOUmlyZFo3SndydnZ2bHU5OWRaYnJYWEcrR1hVUkdvaEdYUmtOTG1wbHdYUXl5Ky9uQXhWQWhWdHNjVVdyRWduM0xkMHdna25WQTg4OEVES3g1bXlJK094WUFyNjRvc3Z4cTkrZzQxT0Z0eFhYNHpCbzhrMEdvRzJTTFBJbTFGMjEzWkdoU1ZMbHZUSENVK2p3TERPbWROSkR0WXBSWkhPY3FBdkdiV2NPaG0wajBvb0N1V3hncmRSS1lYMFhtVk5ReXhDN3IzMzNvRzhSalI5K3ZTMDBMenl5aXRUcFBiUG9WTk9PYVY2N2JYWEpxUVU5TWs5MzU5UWlrNElSTStlZSs2NWdiWnhSTzUzU1lub1J6bXNQaTFmOEd4bGxRTmxmdm5sbCtRUXc2UXM2SWc4RXg2YXRzZXpYQm51TXlZdno2WW82Y1RQYmdMM1dlQmlCNnByRjkxTmNQWFZWNmQ2ZklJSmkwSkE2TC83N3J2VGdzY2FPa3hwR2tJQWlsQmNmL2JaWjBuQWtmR2VmdnJwMWZYWFg1OVdwamZlZUdPMXd3NDdERHducXJOTlF6djBnVE5CdGo4THE4eElVQWdVd1dEQWRwYkIrZFJuVzhYaEdQUG56MDkxbjN6eXlRbDhJU2NycXh3b285a1BhbEtuRHRHV0duTHhzdUVaWmFJb1dscU1nWnhSQ2ptZDhQMkpKNTVJK293ZzNsbC9QZlRRUTMyYmFncnNCcjdKR0VCbzBIWEFHR2dFNWhFUzN5Rk5GekJKUnl3VzlReWFNbVZLZGVLSkoxWnZ2LzEyOWNnamp3dzhFeDExMUZIVnlTZWZYTjF6enoxRkFmTE1SM1lQRE00cUR3Tm5Uem5uQ0hYVEpjTE8xZjJqQWIyMGNaYTZzY2tKMndJZU1OYlpzMmVQM3hrT3RDYzk4VjBwcm5qclpOQU1tZ1l3R0R2RlI5TUZDZjhoaHh3eVlhZUViY0VqamppaXV1S0tLMUpxNENNN2pKS3UrT2dzNEZTUmdDbWZXMXpnQURrbGQ1bHlrWU0zZ0ZML28wRFVaeGUwYlNjbjd5YVEzSkVOaThBNjRGem93NmRITnEzQlNiUkJNWFhxMUg1azcyVFExa3NBZzlVZXJVMUZCRTBydkdValF2cTNrRVJ5SWpxREpTMnh6eUNtRTlxMVFEZytvc0tYNm1pMnFBUENwbTMxQzMvd0txSWRDVGZxenpwSWwvNlJsWlJtditmZys3U2dMbnp5Ym9EUFVsdTA4ZTIzMy9iSEJwVWNzUlFNaEpJelc5bmNldXV0NDNkanlGNGc5WWxzM252dnZXclhYWGZ0dHdNUitGNS8vZlZVQm96eFhyNU9pQmFsNUo5cjdqTjFsUUJ6bENXM1Zsc2k5aFY1WWZQZ2d3OU9TRm5ZbmlrWlN0MXM0UUVmdEduN2FFSXNnakVBRDlzL0MySVVncU5RL280Nzd1Z3J5WkxOTDZuUHZhNUErZFJuVnVTekxvWENBTzI0SW1JbWhYLzBjdXl4eDZidkJCanhMeUpGVkIzR2hIeHMvMVkyczJiTkdyODdFZFRCSGw5NTVaVTBROCtZTWFQYWR0dHQrM1VqZ2pkaGJQSGl4WCt5bm9lUzViR1JvZlA4bGx0dVNVejc1MXd6T0FUVkJKVG5EUlBHRnkwbUVSeUxVd1JwN3pOQUxTSllaQ0prRWUwUVpmMGJ6QWowNzErcE5pV2NMUUtPaWhLaU9pV2l2UVVMRmlUNXdaZmtYNmVQWWRERW9FZEZ5RVhidmV6S0FPeU9jZDExMTEwcHNOUnQrZVpJQzhJVWJIdWYvWlFEZ1hFR1FsNW5EVjJJb2pEMXVnaWJ0dWhIWUtvaGt2bGRFRklVakdUenpUY2Z1RjlIYk9WSWFCaEdCSlJLT1p5aExoS0lLRmVhQVc2NzdiYXdYaDB4TThFdmhGeUlWdEgwT3l4b1I1SFFwMytUUmF5WEZIU2k1MTJJTTBiWW9UWUgwUEdBUVRQMUVmVktRQWdJMTBaaEthRXRhQ00zTFdLRUdGcnBURWtiWXZGWkJ3U1Myek52WTFDS3FnaWJsS09VMXVBY0tCbEhIaFpOQW90UEdlblg4Z014STdJRko4SXVPTi9EQVRVSUdUR2pvSnVtUVdCVVJKcGFtcTNHZWcvbVVRQ21xVERLY3hnNWxDS21oMDgzTEcyeXlTYUpkTDNSUmhzbEJTMWR1alJOUTdZc2hDSktPVGpBd1h3OWlNVklVNTRGeWlQNHlHZ2dGc0lDemswMHRyS2hia2w1Rmt6ajVMRVFiMkdweHl5aTZBNmgyOE1PT3l5OTlOcGpqejJxbzQ4K2VzSWlhN0tJbDFId0FFL3dCZ0UrRmJraDVlZnNpNk1MemhMWmRwUmU1REQyeVNlZnZFQURHSFRkeWJGY05LMERURXRKVWNwaVljdWlTRHVZRXZtcGsrak95eDQrN1gyb2JoemFyUGZVTm9yaVBMeHRqZHJDdWNqemVXMXRGMVRRU1NlZGxHYkthNjY1SmtWRXRqMnQwaUZiZmpLSjlJLytGSldScCt3RjNoWXVYSmgwOXVhYmJ3NEVGMHZubkhOTytrVDNiZUVOR2w2QWdvWFNKNkdmY2xBQXhxQW9JbkMvS1ZPMkUyL0F0STFBSXNmeFpYWHRDZVBGV0tPWE54dHV1T0hBTlI3dERadUZvSndtQXM5eXFZY1ZIbU9SekNBZkVRODk5TkEwYTBUdFREWXhSdXNBQng5OGNQL1ptV2VlbWZnakNvcDN6ZEM1UUZOS0R3RjlxSDFMT0FUSEcvaWVld3VaQTNiazI1TkJFeXd1dSt5eS9uM1paZCtnNnhZZjl0VW9DcmZDRWlFTXYvbU5vUGo4OGNjZngxc2FOSGlnNmRZYmU3U3RCM21ob3hBTXRyVEFJWFZocXRVMS9RaldtZUdmWjd6WnN2VkYvSm9udWo4WnRPbW1tNmEwZ0YwbDZRYjV3eWVmbEVHK3lLNEpVRHBPRnpsektkQjRmWG5RcHVkZGhOM1FIenFMQW1VSmRxdFBwTjBseHNJc2hoeHMyNDFmckZpbWNwR1RiUmYyR0tObkxCN1lZcU1OM2FNZDY0VTJ2MFd3VEwxNkpySjdqaDd3U0p0UlBVOCtrZzlMbXBwRkdHSlVEdjR4U0Y0aWxkWUhsbENpVnZKQ2RQWUNXY294SVJsdXlSanJVSHJ2QU9BckYwanE4dDBtOElGRkJwMTcwZFBZb0Mxb2JOalZMV2MyY0E3cmhYZzY0TVdBTFd1SlBPMzk5OS92Unl3aXM0eG9GRnRRcEJwcTc5UlRUNjIyMjI2N3NCejg4K2xuQ3h5UkZDZVNEL3o1Q0lnczYvYkMyU1h4VWRWSFBRdzRxaXRpWEFRVUhLRk5wS1FmSHdVdGNyTW80L2RPMkFiMHhaajBNemNSTWl3aEdUU1Y2UnptNWQxV1VGNllRalFsdENGRlpEYmM3N3p6em5UVzJpK2l1bTYyVzlwcnI3MnFYWGJaSmR6SFJrQ1BQLzU0NGlNQzBjM1hnZGdEWmNxVGdTSW5YaVZIWlVWejVzeEpaVDBpT1c2Ly9mWVQ1RTc3UkN6SzA1ODFHUFJWNXhpVzJFNXNDdmlnZmRtSER1VjdZN09rNEZSQ1pHOEMwWmVBRmZWUlFqSm9LaWtYVStTalFhVVdQZ3BaK000Z29vR2Q1bERFd3c4L25MYU1iTG0yTDBvc0hYREFBU21Lc2pDRVh3NDRFYmtSRG9MeWtSK0JRWnowNDlTZmJRdml4d25YWFhkZG1FUG1kajNvRjBoTzdIWDdNaUtsSUpxMmthK1ZVV1NNTnAyd1U3OG50Y25XSGZrMlVYUC8vZmNQeTFxS1VwSG9IckprckxJUDVJNzhwMDJiRnJiTGpOSUUzdDY4VEFENjlPMUxsOUdabFdUUTdOdmljUjRVcExOSXlZTHZqTUdRRzNaSkFjaERVVHpSaisyYW1UTm5wZ1BnKys2Nzc0U3lPSTJOWUNnVlhpMjRwMFdRQktiRlZJa09QL3p3RkJra0tQMHd3QlBqbzAzS3NlWEplZW5vSjJxTVN3c24rby95MGloS1UwOWpKQ2hFamdqQkI4WmhEU1QzdGhMOThOdzZpeURqRVUrQ2x5MzJZQS9sVzJKdEFoOXRnQkZibWRpWmpMNXMreEQza0RzekJYeFpKMmlVUXl2cVJmQ2RsUWhoc3FkcTcyRTgxbUVpcjdYbExma1hFM1pnR0puMVhNQVlNQkxiQnM3RFp4UnRNQlRPYjJ0TEt5SWlxLzA1VkVRWUszMHJEK1Y3bEpkR1VacUlTM2xrNTU5Wm9xN1ZrWjhOUmVUUU9VUUxUVUJxZ3g2RXlQbEU3SjNud0lFakJUc01HTWlKQ0JyMHl5ekp0WndxWjlBNTFCbzBEZE5JTHUzd2l4OFdVaGdqaDVmMHhzb2lZakFDNVRCdUs3eXR0OTU2b0I3RXFoZmUyQmFrTDBWV09ZTUZBdlAxenpqampPcnl5eTlQZTZVNFNPbEh3RHZ2dkhONG4xeGFpMFJQL0xDNEtXUlFuczQ2NjZ6d3ZpZTkrRUZ1MFhNYzFEdTVoWFc2SEhqbWc0TEl6NW9XUG1WU1d1S2R5RjlIOWxMaXI5YWdxWXlCNXJ6Q3Y5aFFPZVZkSGhHRFhnZzJLdE1PVHFVOG1EWnpxWXdNN3JISEh1dTNRMTFXOTFIMHk3VmppYjFyOW9Palo2SmNPeXpzNnM3R1dDQ0huTEUwSmNrOWVrWnVQU3lRWmRRMkZPWGZBdm05THcrOEUvbHI3NXpZRzJVSVhwQTM3a1lwUndrNWcvWjVseEFaOU9MRmk4ZWZyb2VOeWtSUUQ5cUl6bXFJV0d6V0dXdmRQalQxeFQ5Q1l6eE1sVkhaSEpFTGVobWdqRktPR2MwaUVSSGhvckxNbUY0bklzYmd3ZGdpdzdEZ21jcEY3VUlZZWduVTkzVmtLeVg0SDN5Z2Q2V2xwSUpza1ZwTW1rSDd2TXZDbGhmNWxNWkdBcThJQkNzdlpacXo3WlFJWlNNZ214Tmp1QnlaRmE5OEVtbjA2Y0c0bXJ5NElYMkpaS0FwRllQa3V3Zmpxb3ZTdkU3bk9DMG9PYlludTgwbndCL0dVWXF1bEdGUm1uTVV1M2dWb3ZaOFBTOGJpNTkrK21tQ25FazVDWFpDRkRRN0d6UU1ZMUJlK0UyOHpwWVhrWU5hSUNCNXAvSXB3Q0M0SndmUWRZNVFBcm1sRmlGQVJrVkt3RFFzUmZzOEQ0cWlHcnl4dCszTGlvait2REdORE5ZZmxrSitHTCtWVzEyVTVsd0dCNE1Ba1M5bmFKYVlYWVpCaVNkclpFQ1IzTXZPODZtRFRoQXBKZldRR1hyM0I1M3NiMUxWSHpMemp0UEpvR1VRRVdFZ01CaEZBOEhYWVFDZmZ2cnArTlAxQm9PaStQU0xGTDdUUHFlODZxSXo3VEo0NzJScTkrdXZ2KzczaFRESjgxQWM3Vjk3N2JWcHhaMzc1UXVDalByMFp6MllGVkNjZFNqcVJtZFBrQjJ5aGFkY2xHYk0zMy8vL2NDUFRkbGJyL3VMVmhoTVc5aFpDdmxFYVZ4MEFsSDJZUU1SaU5ZeFRRaEhlT0dGRi9yWEdndDZzN1lCT2htMEltZUpmRVJBU2FRUlVSN3FoWTBSWWxRNVlJeStqVHJDc09pYmR1MGlFU1d4Wjh0OUtVODVHcFNiRmhrUDIxQW9UYnM1RU9YaFB6SllqSlMrVVRoOTRQU014VWN1eWwxNDRZVnBMeDZlclhIVEIwcFV3S0EvV3pkSFRXWk9PVGFmZHJaU3BLVXZaaE40WWplTEhTV0I5clUyVU1DUXNlbFpwUHNTb1RQa0pkN2hBMXVoZlFBLzBvOTQ3MlRRVFptelFxeExEVkNhb2hobFN3YmRaSXB0UTdUWEZoZ3RyNkhyakY1VGFCVGRPUFN1dW93OUNoU0syc0FxVnZLQkQ1VTk4TUFEQitxS3RFVldCM2loWFJ3YjNuRldQME1LOU12TEpNcFNUMzF4MzhJK3Uvbm1tOVB4QnMyQ2NnN3J0TWhKTTJzYmlQZldCczFBTlVCKzFNblpDd1pOWXpDeTMzNzdKY0tUS0tkSXdtZWtWRXRFVFpXVm9pTWdSQlJ0Ni9JaUFjUGt4WTF5TXdSdXkzZ2lBdENPbEVMRUZmQjJSUUtQS0hwWnVWZ282dk9NdjdnVTdXWEROMU0zUENocSsxK1NLTG9UVERCczJ5NlJFbm1UTXZHSm82RUxHUXJ0alJyOHNGVzg4V2NKOUQyYWJmVU1tZ3hlTEZvYk5BeGlMQ0F5UEJzOWZLUkZFWGduZ282aWJOMXhRNHdHUTlPMEtLVUNycjFCV1dIcUdDTFRPSHhwZWdUV1FDbkhjNzVId3FjUDhtb2J2ZUNMUE5hT0ZhUXBzTmNPN1ZuK01FRDRpRjdHWU1qOFZBcm40Z0E3cjVoOUlDRGkwaVlHVERuKzZLV2dQdTNyWTl2M3FJQU0rS1VOTXVBN08wZWNwMUVRc0E0T3J6eXpoN2xHQlI5SWtrRmpsTlk0N0hjUG1QT0tzN0JHYmlPSkJReFFUdCs5VTNpSVA0eVF2aUVVaWVMZ1IyV2lkbmhPMU5DUlZBelJBNkh3TnlCNFRoU0ZKL3FJaEIrTkg4ZmhSd3ordmwwY2VmNTBqUnpnTDByaEZKVnBuekorRWN4T0FMT2FuVm5zejdsNG5ZeUJlNk1mRnNqTEJoYkd3ZGl0cm0zZ0t3RVoyK0RTRnJZZmVCbnJDZnR0Q1FCbHNjRFJkd0N6dlBoUXAxRlVib3ZJS0N5c3dkdm9hUmNodVpWMERpaEJFVFdDZlE1SldSNlJrekllL242SWwwdGRueDZNbVQ4b0dlMHR5N2hwajAvU0pmc2NZK2NaTXRwNzc3MlRmUG5yc0h4Q09aMlZ4Z3E0cjJlTWgrODJzT1RhcmRNeG9LNzR4ekM3d1BhVDJ1c3hPTTlPbnlUdWRNQzlSWXNXOVRzY3BsT1BYT1FXTEpNSWthakQzNVcyL1Z0ajRic2lCZzdKOVRCQU1QUmY0dEdpcTVQRHIrV1ZhK1RNK0RGTW9uNWszT3pKa29yd2pQVERQK2QxUFE0ZnlRRjVRVUxkV0htdXNUV051cUNKVEdoUFBQdmN1eWw4UHdNNXRBVEtwajJHd1d0Rks5Q3VuZWFRbTI0aWd5OEpVeEVEQTRCUERIM1VRR2hORGJ3T0dCb0c2M20xczQ2VkFRYUlrZXZ2VWxzaXZ5YnRZRTJpblFLUnRyMHMzOVpBMjZKSjFHMEwyc1N1aGcxQ3dvQkJTNkQ2ZzRVYStLZzdCYlF0d1RlSi9FMkVpZUlwZ3pHTUVqYnRVVjRLMlVnSGVEa1UzUmZrRkl5WEh3TjRYcEd2WmgxZ0RScWlIcWtOT3hoczBVV0hwbkk3U1JnOGJROGptMXpVaFRjV3FIN2M5RFZNZnR3RkF3YnRCUnBoVkV5Mm1XNFE0a2NmZlJRSzB3UGVTMGJWQmNoRmFWa3VMOVhzeG5uZktKSmJwK0RBRlo4NGFRNXFqekwwQS9GZC95ZFJRSTVzVS9xY3VrUnNWZExXcUFJVXZMR0xZZm5pbnZwckVyQ0dBZU5neGtzeTYxMDMzclliTlpNSVZaRS9NZ0lRN2ZsYXdKT2ZVaEVzOTNKdGpnTGVzVFc3Ulh6Q2gzVUtsRTg1cmlNd0JuN242TXNRSVRrYXkvWlg1TERJaWhTRE15cmlwVVJFYy85YUhuaVpOZ0ZqaGkrTUNtSWJVLzNNbXpkdlVpTTFmK1NHZmxKSzFydHViTkJ0b21vYjJHamtZUTNCSzdGazdLVTJoelYwdHNEVXJ4d2JQdldtenhxaCtMRDd3cFROellSMlRPeFYreklZdFkyR3RNOUpPRDhtakpLWE5kRitmMFNVNDgyZC9ibFpKRHNCdnVCRjREdXlnQytJL21Ya2FvL25qQjJlQ1FETWRqbFFMcEpQQkp5WTl0TVBJWHJYalEwYXdDVEdIQW14Syt4aXFBMUt4cDVyczJUb2RWRGt5cjBaaXd6VlIyNmV3VU5PV2FVeENiU0QwZkNwdHRWK0JDMmFteDRPMm0yMzNkSm1RTzVnRmhBUGRmQkJFRjdzRzF3RkJBdkdYZnEvTEI3azd4dzE1VTh6cHo5NEhnazROKzB3MVRiMTRxYUlER0ZZMkRZaGpkRWFPdGMyeWxpb25tQWpKei9jSmVJcVhTcUJmMG1uUHlqREgwRkhycmZmZnZ2QWFibTJnR2ZhZ1Q4aUlMK28xMWpyZ2d6NlkrelJkcDhuWHR6d20wcTJiejFvcDBsQXMzTERib0EzY2cvR3hvNFZiMjBCTWtaL3BVQWdqTDM2NnF1dmN4NUR4emVwd044cFZvZldZT2xJOTNXR2cvSjBXTmNSejNQRzB3WmRaZ1g0SnBwUTF4cDZLY3BRQnhLb2w0dWNPWUZ6amF4MGFJZ1V3c293aWs1MW9IM2Z2NkQrbWdZWjlJRkIrWE14RVNrbHdaQ2JBQjVwUHljM2VDd0ZCUDRrQlZrQTBBd0RXWjFFU0gvQlg4b0dWTURyeWI4OEU5YXptSklFN3VjTVF5Z1pUMU8wVlZnZG1rYVpPdVFFcnRsQSsrTzhWcStMVG5XZy9aeFN1Nlp1QUQwalY5WUJkWWZJZEpZa1o0eGdHSDFUbDM1a2Y5WUdTMGoxZXArdGNtaTJSL2pybGZhUEx6WmhmaFRHWS8rS0pjSnNPdEJoZ1BHSWI4YVFXNjFIVVpwN0tJVWN6d1lIVWhaZWNaY01vZ3ZVMzdCeW9SMGNqOFdXZjFsalNTOXVJZ2NiUnQrODFDT28wa2JKZ1QwWWQydURqcUNjemdQbFdxV1ZES0lKeU1GSS9tSGN6Z3EwdTNMbHlxRVY2V0h6UDdiTDlKMitQWEpSbW9VVjArZW9lZnM5d1hod2xOS2lrci9VUkxEejQvUTJVQWNibmR0aTJiSmwxWDhBWGxETnNSSGRUZ0FBQUFBQVNVVk9SSzVDWUlJPR8EZ2RkAgUPFgIfBGdkAjcPDxYCHwAFLVBvcnRhbCBkYSBORi1lIDIwMTYgLSBOb3RhIEZpc2NhbCBFbGV0csO0bmljYWRkGAMFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYGBQ9jdGwwMCRpYnRCdXNjYXIFKWN0bDAwJGdkdkxpbmtzRGVzdGFxdWUkY3RsMDIkSW1hZ2VCdXR0b24xBSljdGwwMCRnZHZMaW5rc0Rlc3RhcXVlJGN0bDAzJEltYWdlQnV0dG9uMQUpY3RsMDAkZ2R2TGlua3NEZXN0YXF1ZSRjdGwwNCRJbWFnZUJ1dHRvbjEFKWN0bDAwJGdkdkxpbmtzRGVzdGFxdWUkY3RsMDUkSW1hZ2VCdXR0b24xBSRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJHNvbUNhcHRjaGEFJmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkbXZ3Q29uc3VsdGFzDw9kAgFkBRZjdGwwMCRnZHZMaW5rc0Rlc3RhcXVlDzwrAAwBCAIBZG85IUUVmt0Ob/ETJIMSQyg8gDhf" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/portal/WebResource.axd?d=ZWO9axJrMUCOr1izP3UEZRCC9H9dses7etW7JecjiAOQDqMwdG-StzfDPAgcsQ8hxRkl-AMsAJBR-BfkCGB56pQ3gKo1&amp;t=635792919671809273" type="text/javascript"></script>
+
+
+<script src="/portal/ScriptResource.axd?d=90Y9nTiAKl6XmIV9joXxB-K2BdO9Wb41j3SLJ7ANuwuYGEW2r9Oe8WDxRdkLbbtOTfVGMi2AnBcavh9OB59Ok5OQpooSHBiwKpwzAX1oI2XLTIn5uoUBsUj-cGc5qOGG41DZvsswNH1DBLdWi7hD8XliLCA1&amp;t=fffffffffa488f4d" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=lKER9OjLRXZj9hl3hYK1NeWbJzY0IIuG9PQaTzQ6Pm4nRciLTwk7o7LjvpMe9GVNg6X662VfwSehVb1otyCcpU2m44xxQkgLKAsDvmWO2Yna970r9nQMs9iM2wsfBKVn0e1N7A7CfQv2RmViMgcjNESKRE1Dcs2RNiSvVkuZ4dWJXKV60&amp;t=72e85ccd" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=Zi9TAHOLxEdccMKnNf4xNp8a5H_hC7ktwxXCMW839oIKC-KlhfxAOitBAXQG-SWySwraG75zIJTvwEANGe6get63WoT4ZdLXWAgk2Z-XBAfy6jgxiI7x9b-cNebF_Co_PAsvQ0fBly5YGzia9V_0av0M8lEOOZsSxMV4gVx6Zq9PLtC70&amp;t=72e85ccd" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=smDdZy0UdpA1U3PAJHasvdsXod9zn0f2STlJy-PJhGx8_vYP8dRjsZf1qYxwY3mS3cKF3WfB2R7Sg2WH_GXXIJKqKFePPEuDwdr0J1yTgWwyQFaZHnpfUQNuECmQ8Px3haXQojOb4ag1amzsVDiDq6qB-x01&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=kVR0IuuaOhFQpbjZA2sxxCaO48uBn_yQ4V1ccam0AMBnJU-vxMcVz4_hScZwm0hjt38WU8tS_S9S9e-wfV9LiOXTumlBPyt5u-wXxYke6l0NhR_Ob4oiPVTYswKhwFEsSqlZZo1rxk5seYGDbATTjkNDUzY1&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=pkcToEKdnWyj6BBLNVnJyu_Y3XuXBs98wZ9wyZ15w9FXEvOrMM_gT7X2PwqJnvsQwfFLRbyxKeWQ2-Se4Q_7IXxARPdPMFy6Wgv8gHuYX2tS02anFSYZQgATkiBq9L2Yo3nBUqnJHh5z5fmkcUkTqbk72f01&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=l84ZJb7av4nWEYmrUBlqz_xYDiy0on6DT4jtttxtkWr02MctCAoc2Wn1hZblUUTh-TGffEgIYUOPcfY6FTKpxumPBPqSE5DeU9Fe88UicGnOpX87B2r7zozypeAyqKLoVYXUNAX1vrLuRgjmBPBiJGaY0c2ZX4rNd72hCnu_9ISYB4lw0&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=iDbFzJSD2oML9r8HieMBM-M5gKhdLCr5IrMss1r17SsZ0JcaO8TSLbAGunGheaW3Fj0IjsrIGzPxUhMMhtkaM-AhC3KMBTGg9PenIXe-p2nmvF4WImocqKuito4crmkzUW3tjQSXa_Vrz-x-4r8IrVyS-Jloz7keeyTzQuO8126poHhe0&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=AiYOmmQWJYcb6cvJtIZ-9MKPdtkBa7UyWQPa9fehqyoGrsAdiYguZzbaZYfBK6IRoAwuGML54M6traEPFdZLa4H8KLLZLY3s8RhJWQWrRIKONPTO4QgzVn0-ZnBE_h16Nc6oo_qSbd5C77QEW-IevdOLAS5skB6YczbXT-cJBPKepBnt0&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/portal/ScriptResource.axd?d=re7kKGQqZxCO0AjgKkBJNbY_JwHnDfNmkK6-PdOBQcA-_lUmrvxrQm5kHHnzPxP9CMhmIbF8xgBPP2bg3tQI3aH6pnGFWuGn1wQ_6PbuTzniu6aYITmr5zjYR4AGaiIXWdxLh79qhN9GIa4oxYvya7XvOkcOfXsHte-TGaHlNkb7Nptc0&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B5B0D4D0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA/2iwgKrfe3Mf3CaxoqvKWYBGqPhwrln+9PTG+a425C4DQnJFM/mcs/d0VTMpMTYCGeOO0tTX51je1QOUgbhAXiTo1Ol8i+hK4G4Vo+jsDQOY8aEJZjnoPmyZdMj0cTDps02TTrU70chmk+oYZUyBFDMV5rQ02/s0ktp46Gfiy/coJgn06mMihbVjkI1u74QCeCfTspHnKMom4WREfNoQeM7H30DjvuZHqRE05bVtqWSK4WtomhoGXCF4LhXZ/AhS3F8ZLI9es9wT09XJsh63BVkk7aCjzv+b7H1Z/ScSHD8UECwoJkW1gYXPEUT0l3HnupH3q0Xf5mv1hc0IPYZfrd+e6gHQ==" />
+</div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm', ['tctl00$upnBuscar',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+
+            <div id="tudoSemRodape" class="contemFloat">
+                <div id="cabecalho">
+                    <div id="menuAcessibilidade">
+                        <?xml version="1.0" encoding="iso-8859-15"?><a href="listaSubMenu.aspx?Id=fQsOzDfuAYE=">Conheça a NF-e</a><a href="listaSubMenu.aspx?Id=nIzMon5clGU=">Serviços</a><a href="listaSubMenu.aspx?Id=33ol5hhSYZk=">Legislação</a><a href="listaSubMenu.aspx?Id=tW+YMyk/50s=">Documentos</a><a href="listaSubMenu.aspx?Id=/fwLvLUSmU8=">Downloads</a><a href="https://www1.sped.fazenda.gov.br/scripts/scaef/login/login.asp?URL=/spednfeacesso/arnfe/inicial/default.aspx&amp;Sistema=SPEDNFe%20Portal&amp;URLCert=/scripts/scaef/login/AbreCertificado/default.asp&amp;URLScaef=/scripts/scaef/scaef.dll">Área Restrita</a>
+                    </div>
+                    
+                    <div id="divTransparente" onclick="javascript:location.href = 'principal.aspx'">
+                    </div>
+                    <div id="imgHome">
+                        <a href="principal.aspx">
+                            <img id="ibtHome" src="imagens/home_icon_Off.png" onmouseover="javascript: trocarImagem(this)"
+                                onmouseout="javascript: trocarImagem(this)" alt="Link para a página inicial do Portal da NF-e" />
+                        </a>
+                    </div>
+                    <div id="menu">
+                        <?xml version="1.0" encoding="iso-8859-15"?><ul class="abasMenu" xmlns:chave="http://exslt.org/chaveacesso"><li class="itemMenuPrincipal"><a href="listaSubMenu.aspx?Id=nIzMon5clGU=">Serviços</a><ul class="dropdown"><li><a href="consulta.aspx?tipoConsulta=resumo&amp;tipoConteudo=d09fwabTnLk=">Consultar Resumo da NF-e</a></li><li><a href="consulta.aspx?tipoConsulta=completa&amp;tipoConteudo=XbSeqxE8pl8=">Consultar NF-e Completa</a></li><li><a href="consulta.aspx?tipoConsulta=inutilizacao&amp;tipoConteudo=YG1QjUXR4PY=">Consultar Inutilização</a></li><li><a href="solicitaCertificado.aspx?tipoConteudo=tWGiMa+ohzI=">Consultar Duplicidade AN</a></li><li><a href="disponibilidade.aspx?versao=0.00&amp;tipoConteudo=Skeuqr8PQBY=">Consultar Disponibilidade</a></li><li><a href="https://www.nfe.fazenda.gov.br/portal/manifestacaoDestinatario.aspx?tipoConteudo=z+xSrb/veGA=">Manifestação Destinatário</a></li><li><a href="webServices.aspx?tipoConteudo=Wak0FwB7dKs=">Relação de Serviços Web</a></li><li><a href="https://www.nfe.fazenda.gov.br/AgendamentoSVC/?tipoConteudo=Ue3XDkLSO2A=">Agendamento SVC-AN</a></li><li><a href="https://www.nfe.fazenda.gov.br/portal/consultaEPECConciliacao.aspx?tipoConteudo=QTlVUO4tycw=">Consultar EPEC Pendente de Conciliação</a></li></ul></li><li class="itemMenuPrincipal"><a href="listaSubMenu.aspx?Id=33ol5hhSYZk=">Legislação</a><ul class="dropdown"><li><a href="listaConteudo.aspx?tipoConteudo=mCK/KoCqru0=">Ajustes SINIEF</a></li><li><a href="listaConteudo.aspx?tipoConteudo=Y0nErnoZpsg=">Atos COTEPE</a></li><li><a href="listaConteudo.aspx?tipoConteudo=0xlG1bdBass=">Convênios</a></li><li><a href="listaConteudo.aspx?tipoConteudo=IV+EmHlFEfQ=">Protocolos</a></li></ul></li><li class="itemMenuPrincipal"><a href="listaSubMenu.aspx?Id=tW+YMyk/50s=">Documentos</a><ul class="dropdown"><li><a href="listaConteudo.aspx?tipoConteudo=33ol5hhSYZk=">Manuais </a></li><li><a href="listaConteudo.aspx?tipoConteudo=/fwLvLUSmU8=">Esquemas XML</a></li><li><a href="listaConteudo.aspx?tipoConteudo=tW+YMyk/50s=">Notas Técnicas</a></li><li><a href="listaConteudo.aspx?tipoConteudo=Iy/5Qol1YbE=">Diversos</a></li></ul></li><li class="itemMenuPrincipal"><a href="listaSubMenu.aspx?Id=/fwLvLUSmU8=">Downloads</a><ul class="dropdown"><li><a href="download.aspx?tipoConteudo=s/eYlu5e+Y4=">Visualizador de DF-e</a></li><li><a href="download.aspx?tipoConteudo=YkoQKwGaI70=">Assinador</a></li><li><a href="listaConteudo.aspx?tipoConteudo=Jd9VnWmU9wY=">Emissor de NF-e</a></li><li><a href="listaConteudo.aspx?tipoConteudo=AxaPNP1BtFk=">Manifestador de NF-e</a></li></ul></li></ul>
+                    </div>
+                </div>
+                <div id="barraDireita">
+                    <div id="estatisticas">
+                        <h1>Estatísticas da NF-e</h1>
+                        <span id="ctl00_lblTituloNfeAut">NF-e Autorizadas</span>
+                        <br />
+                        <div class="valorEstatistica">
+                            <span id="ctl00_lblTotalNfeAut">14,596 bilhões</span>
+                        </div>
+                        <span id="ctl00_lblTituloEmissores">Número de Emissores</span>
+                        <br />
+                        <div class="valorEstatistica">
+                            <span id="ctl00_lblTotalEmissores">1,338 milhões</span>
+                        </div>
+                        <a id="ctl00_hlkInfoEstatisticas" href="infoEstatisticas.aspx">... saiba mais</a>
+                    </div>
+                    <div id="busca">
+                        <div id="ctl00_upnBuscar">
+	
+                                <input name="ctl00$txtPalavraChave" type="text" id="ctl00_txtPalavraChave" class="campoTextoBusca" />
+                                
+                                <input type="image" name="ctl00$ibtBuscar" id="ctl00_ibtBuscar" class="botaoBuscar" onmouseover="javascript: trocarImagem(this)" onmouseout="javascript: trocarImagem(this)" src="imagens/botao_buscar_Off_completo.png" style="border-width:0px;" />
+                                
+                            
+</div>
+                    </div>
+                    <div id="linkAreaRestrita">
+                        <p>
+                            <a id="ctl00_hlkAreaRestrita" href="https://www1.sped.fazenda.gov.br/scripts/scaef/login/login.asp?URL=/spednfeacesso/arnfe/inicial/default.aspx&amp;Sistema=SPEDNFe%20Portal&amp;URLCert=/scripts/scaef/login/AbreCertificado/default.asp&amp;URLScaef=/scripts/scaef/scaef.dll">Área Restrita</a>
+                        </p>
+                    </div>
+                    <div id="linkCentralNFe">
+                        <p>
+                            <span id="ctl00_lbl0800">Central NF-e 0800 9782338</span>
+                        </p>
+                    </div>
+                    <div id="linkFAQ">
+                        <p>
+                            <a id="ctl00_hlkFAQ" href="perguntasFrequentes.aspx?tipoConteudo=47FIo72z99s=">Perguntas Frequentes</a>
+                        </p>
+                    </div>
+                    <div id="linkSefaz">
+                        <p>
+                            <span id="ctl00_lblPortaisSefaz">Portais e Secretarias</span>
+                        </p>
+                    </div>
+                    <div id="linkBanners">
+                        <p>
+                            <span id="ctl00_lblPortaisEstaduais">Portais Estaduais da NF-e</span>
+                            <br />
+                            <?xml version="1.0" encoding="iso-8859-15"?><select onchange="javascript: window.open(this.value)"><option value="">Selecione</option><option value="http://www.sefaz.ac.gov.br/sefaz2010/">Acre</option><option value="http://www.sefaz.al.gov.br/nfe/">Alagoas</option><option value="http://sistemas.sefaz.am.gov.br/nfeweb/portal/index.do">Amazonas</option><option value="http://www.sefaz.ba.gov.br/scripts/default/nfiscal.asp">Bahia</option><option value="http://nfe.sefaz.ce.gov.br/">Ceará</option><option value="http://dec.fazenda.df.gov.br/">Distrito Federal</option><option value="http://internet.sefaz.es.gov.br/informacoes/nfe/">Espirito Santo</option><option value="http://nfe.sefaz.go.gov.br/">Goiás</option><option value="http://www.sefaz.ma.gov.br/NFE/">Maranhão</option><option value="http://www.sefaz.mt.gov.br/portal/nfe/">Mato Grosso</option><option value="http://www1.nfe.ms.gov.br/">Mato Grosso do Sul</option><option value="http://portalnfe.fazenda.mg.gov.br/">Minas Gerais</option><option value="http://www.sefa.pa.gov.br/site/">Pará</option><option value="http://www.receita.pb.gov.br/portalnf-e.php">Paraíba</option><option value="http://www.sped.fazenda.pr.gov.br/">Paraná</option><option value="https://www.sefaz.pe.gov.br/Servicos/Nota-Fiscal-Eletronica/Paginas/Apresentacao.aspx">Pernambuco</option><option value="http://www.sefaz.pi.gov.br/conteudo_internet.php?p=nfe_home">Piauí</option><option value="http://www.fazenda.rj.gov.br/sefaz/faces/webcenter/faces/owResource.jspx?z=oracle.webcenter.doclib%21UCMServer%21UCMServer%2523dDocName%253A100998">Rio de Janeiro</option><option value="http://www.set.rn.gov.br/contentProducao/aplicacao/set_v2/nfe/gerados/inicio.asp">Rio Grande do Norte</option><option value="http://www.sefaz.rs.gov.br/SEF_ROOT/inf/SEF-NFE.htm">Rio Grande do Sul</option><option value="http://www.portal.sefin.ro.gov.br/site/conteudo.action?conteudo=234">Rondônia</option><option value="http://nfe.sef.sc.gov.br/">Santa Catarina</option><option value="http://www.fazenda.sp.gov.br/nfe/">São Paulo</option><option value="http://nfe.sefaz.se.gov.br/">Sergipe</option><option value="http://www.sefaz.to.gov.br/nfe/consultanfe.php">Tocantins</option></select>
+                        </p>
+                        <p>
+                            <span id="ctl00_lblLinkSefaz">Secretarias de Fazenda</span>
+                            <br />
+                            <?xml version="1.0" encoding="iso-8859-15"?><select onchange="javascript: window.open(this.value)"><option value="">Selecione</option><option value="http://www.sefaz.ac.gov.br/">Acre</option><option value="http://www.sefaz.al.gov.br/">Alagoas</option><option value="http://www.sefaz.ap.gov.br/">Amapá</option><option value="http://www.sefaz.am.gov.br/">Amazonas</option><option value="http://www.sefaz.ba.gov.br/">Bahia</option><option value="http://www.sefaz.ce.gov.br/">Ceará</option><option value="http://www.fazenda.df.gov.br/">Distrito Federal</option><option value="http://www.sefaz.es.gov.br/">Espirito Santo</option><option value="http://www.sefaz.go.gov.br/">Goiás</option><option value="http://www.sefaz.ma.gov.br/">Maranhão</option><option value="http://www.sefaz.mt.gov.br/">Mato Grosso</option><option value="http://www.sefaz.ms.gov.br/">Mato Grosso do Sul</option><option value="http://www.fazenda.mg.gov.br/">Minas Gerais</option><option value="http://www.sefa.pa.gov.br/">Pará</option><option value="http://www.sefin.pb.gov.br/">Paraíba</option><option value="http://www.fazenda.pr.gov.br/">Paraná</option><option value="https://www.sefaz.pe.gov.br/SitePages/Home.aspx">Pernambuco</option><option value="http://www.sefaz.pi.gov.br/">Piauí</option><option value="http://www.fazenda.rj.gov.br">Rio de Janeiro</option><option value="http://www.set.rn.gov.br/">Rio Grande do Norte</option><option value="http://www.sefaz.rs.gov.br/">Rio Grande do Sul</option><option value="http://www.portal.sefin.ro.gov.br/">Rondônia</option><option value="http://www.sefaz.rr.gov.br/">Roraima</option><option value="http://www.sef.sc.gov.br/">Santa Catarina</option><option value="http://www.fazenda.sp.gov.br/">São Paulo</option><option value="http://www.sefaz.se.gov.br/">Sergipe</option><option value="http://www.sefaz.to.gov.br/">Tocantins</option></select>
+                        </p>
+                        
+                        
+                        <img id="linhaDivisoria" src="imagens/linha_divisoria.png" alt="Linha divisória" />
+                        <div>
+	<table cellspacing="0" rules="all" border="0" id="ctl00_gdvLinksDestaque" style="border-width:0px;border-collapse:collapse;">
+		<tr>
+			<td>
+                                        <input type="image" name="ctl00$gdvLinksDestaque$ctl02$ImageButton1" id="ctl00_gdvLinksDestaque_ctl02_ImageButton1" onmouseover="javascript: trocarImagem(this)" onmouseout="javascript: trocarImagem(this)" title="Manifesto Eletrônico de Documentos Fiscais" src="imagens/banner_mdfe_Off.png" alt="Manifesto Eletrônico de Documentos Fiscais" onclick="aspnetForm.target =&#39;_blank&#39;;" style="border-width:0px;" />
+                                    </td>
+		</tr><tr>
+			<td>
+                                        <input type="image" name="ctl00$gdvLinksDestaque$ctl03$ImageButton1" id="ctl00_gdvLinksDestaque_ctl03_ImageButton1" onmouseover="javascript: trocarImagem(this)" onmouseout="javascript: trocarImagem(this)" title="Conhecimento de Transporte Eletrônico" src="imagens/banners_Visite_CTe_Off.png" alt="Conhecimento de Transporte Eletrônico" onclick="aspnetForm.target =&#39;_blank&#39;;" style="border-width:0px;" />
+                                    </td>
+		</tr><tr>
+			<td>
+                                        <input type="image" name="ctl00$gdvLinksDestaque$ctl04$ImageButton1" id="ctl00_gdvLinksDestaque_ctl04_ImageButton1" onmouseover="javascript: trocarImagem(this)" onmouseout="javascript: trocarImagem(this)" title="Sistema Público de Escrituração Fiscal" src="imagens/banners_Visite_Sped_Off.png" alt="Sistema Público de Escrituração Fiscal" onclick="aspnetForm.target =&#39;_blank&#39;;" style="border-width:0px;" />
+                                    </td>
+		</tr><tr>
+			<td>
+                                        <input type="image" name="ctl00$gdvLinksDestaque$ctl05$ImageButton1" id="ctl00_gdvLinksDestaque_ctl05_ImageButton1" onmouseover="javascript: trocarImagem(this)" onmouseout="javascript: trocarImagem(this)" title="Superintendência da Zona Franca de Manaus" src="imagens/banners_manaus_Off.png" alt="Superintendência da Zona Franca de Manaus" onclick="aspnetForm.target =&#39;_blank&#39;;" style="border-width:0px;" />
+                                    </td>
+		</tr>
+	</table>
+</div>
+                        
+                    </div>
+                </div>
+                <div id="conteudo">
+                    <div id="localizacao">
+                        <div id="voceEstaAqui">
+                            Você está aqui:
+                        </div>
+                        <div id="caminho">
+                            <a id="ctl00_hlkPaginaPrincipao" href="principal.aspx">Página Principal</a>
+                            <?xml version="1.0" encoding="iso-8859-15"?>
+    &gt;
+    <a href="listaSubMenu.aspx?Id=nIzMon5clGU=">Serviços</a>
+      &gt;
+      <span class="fonteCinza">Consultar NF-e Completa</span>
+                            
+                            
+                        </div>
+                    </div>
+                    <div id="zoomAcessibilidade">
+                        <img src="imagens/acessibilidade_reduzir_Off.png" id="imgZoomMenos" onmouseover="javascript: trocarImagem(this)"
+                            onmouseout="javascript: trocarImagem(this)" alt="Link que permite reduzir o tamanho da fonte" />
+                        <img src="imagens/acessibilidade_ampliar_Off.png" id="imgZoomMais" onmouseover="javascript: trocarImagem(this)"
+                            onmouseout="javascript: trocarImagem(this)" alt="Link que permite aumentar o tamanho da fonte" />
+                    </div>
+                    <div id="conteudoDinamico">
+                        
+    <div class="divTituloPrincipal">
+        <span id="ctl00_ContentPlaceHolder1_lblTituloPrincipal" class="tituloPrincipal">Consultar NF-e Completa</span>
+    </div>
+    
+   
+    <div id="ctl00_ContentPlaceHolder1_pnlInformacoesConsulta" class="divComBordas">
+	
+        <div id="ctl00_ContentPlaceHolder1_pnlCamposEntrada" class="consultaDireita" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ContentPlaceHolder1_btnConsultar&#39;)">
+		
+            <div id="ctl00_ContentPlaceHolder1_pnlConsultas">
+			
+                
+                        <span id="ctl00_ContentPlaceHolder1_lblChaveAcessoCompleta" class="labelConsulta">Chave de Acesso da NF-e</span>
+                        <br />
+                        <input name="ctl00$ContentPlaceHolder1$txtChaveAcessoCompleta" type="text" id="ctl00_ContentPlaceHolder1_txtChaveAcessoCompleta" class="txtChaveAcesso" OnKeyPress="mascara(this,soNumeros44)" onFocus="mascara(this,soNumeros44)" onBlur="mascara(this,soNumeros44)" onChange="mascara(this,soNumeros44)" />
+                        <span id="ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta" style="color:Red;display:none;"></span>
+                        <span id="ctl00_ContentPlaceHolder1_refChaveAcessoCompleta" style="color:Red;display:none;"></span>
+                    
+            
+		</div>
+            <div id="ctl00_ContentPlaceHolder1_pnlBotoes" class="pnlBotoesConsulta">
+			    
+                <input name="ctl00$ContentPlaceHolder1$txtCaptcha" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_txtCaptcha" class="txtCaptcha" />
+                <input type="image" name="ctl00$ContentPlaceHolder1$somCaptcha" id="ctl00_ContentPlaceHolder1_somCaptcha" src="imagens/som_captcha.png" onclick="ObterID_E_TocarSom();return false;" style="border-width:0px;" />
+                <span id="ctl00_ContentPlaceHolder1_lblCaptcha" class="labelConsulta">Digite o código da imagem ao lado</span>
+                <span id="ctl00_ContentPlaceHolder1_rfvCaptcha" style="color:Red;display:none;"></span>
+                <span id="ctl00_ContentPlaceHolder1_revCaptcha" style="color:Red;display:none;"></span>
+                <br />
+                <br />
+                <div id="ctl00_ContentPlaceHolder1_vdsErros" class="listaErro" style="color:Red;display:none;">
+
+			</div>
+                
+                
+                <input type="submit" name="ctl00$ContentPlaceHolder1$btnConsultar" value="Continuar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnConsultar&quot;, &quot;&quot;, true, &quot;completa&quot;, &quot;&quot;, false, false))" id="ctl00_ContentPlaceHolder1_btnConsultar" class="botao" />
+                <input type="submit" name="ctl00$ContentPlaceHolder1$btnLimpar" value="Limpar" id="ctl00_ContentPlaceHolder1_btnLimpar" class="botao" />
+            
+		</div>
+        
+	</div>
+        <div id="ctl00_ContentPlaceHolder1_pnlCaptcha" class="consultaEsquerda">
+		
+             <img id="ctl00_ContentPlaceHolder1_imgCaptcha" src="data:image/png;base64,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" style="border-width:0px;" />
+             <input type="hidden" name="ctl00$ContentPlaceHolder1$token" id="ctl00_ContentPlaceHolder1_token" value="2025975518" />
+             <input type="hidden" name="ctl00$ContentPlaceHolder1$captchaSom" id="ctl00_ContentPlaceHolder1_captchaSom" value="http://captcha2.servicoscorporativos.serpro.gov.br/captcha/2.0.0/som/som.wav?30015296391414720013514761702613964991513412018133200" />
+            <br />
+            <a id="ctl00_ContentPlaceHolder1_hlkAlterarCaptcha" class="labelDetalhe" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$hlkAlterarCaptcha&#39;,&#39;&#39;)">Clique aqui se não conseguir visualizar a imagem.</a>
+        
+	</div>
+    
+</div>    
+    <br />
+    <?xml version="1.0" encoding="iso-8859-15"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /></head><body><div class="indentacaoConteudo" xmlns=""><p><span class="tituloConteudoConsulta">Observações</span><ul class="marcadorDecimal">
+<li>Chave de Acesso: deve ser informado o número de 44 dígitos presentes no DANFE (Documento Auxiliar de Nota Fiscal Eletrônica).</li>
+<li>Código impresso ao lado: digite os 6 caracteres da imagem. Essa informação ajuda a evitar consultas por programas automáticos, que dificultam a utilização do aplicativo pelos demais contribuintes.</li>
+<li>Para que a consulta funcione corretamente, é necessário que seu navegador esteja habilitado para gravação de &quot;cookies&quot;.</li></ul></p></div></body></html>
+    
+
+                    </div>
+                </div>
+            </div>
+            <div id="rodape">
+                <div id="sombraRodape">
+                </div>
+                <div id="conteudoRodape">
+                    <div id="menuRodape">
+                        <?xml version="1.0" encoding="iso-8859-15"?><a href="listaSubMenu.aspx?Id=fQsOzDfuAYE=">Conheça a NF-e</a><a href="listaSubMenu.aspx?Id=nIzMon5clGU=">Serviços</a><a href="listaSubMenu.aspx?Id=33ol5hhSYZk=">Legislação</a><a href="listaSubMenu.aspx?Id=tW+YMyk/50s=">Documentos</a><a href="listaSubMenu.aspx?Id=/fwLvLUSmU8=">Downloads</a><a href="https://www1.sped.fazenda.gov.br/scripts/scaef/login/login.asp?URL=/spednfeacesso/arnfe/inicial/default.aspx&amp;Sistema=SPEDNFe%20Portal&amp;URLCert=/scripts/scaef/login/AbreCertificado/default.asp&amp;URLScaef=/scripts/scaef/scaef.dll">Área Restrita</a>
+                        <span id="ctl00_lblPortalRodape" class="labelPortalRodape">Portal da NF-e 2016 - Nota Fiscal Eletrônica</span>
+                    </div>
+                    <div id="marcaReceita">
+                        <a href="//www.receita.fazenda.gov.br" target="_blank" class="imgReceita">
+                            <!--img src="imagens/marca_Receita.png" class="imgReceita" alt="Link para o sítio da Receita Federal"/-->
+                            Receita Federal </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tipoAmbiente">
+                <span id="ctl00_lblAmbiente"></span>
+            </div>
+
+        
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_ContentPlaceHolder1_vdsErros"));
+var Page_Validators =  new Array(document.getElementById("ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta"), document.getElementById("ctl00_ContentPlaceHolder1_refChaveAcessoCompleta"), document.getElementById("ctl00_ContentPlaceHolder1_rfvCaptcha"), document.getElementById("ctl00_ContentPlaceHolder1_revCaptcha"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta = document.all ? document.all["ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta"] : document.getElementById("ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta");
+ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta.controltovalidate = "ctl00_ContentPlaceHolder1_txtChaveAcessoCompleta";
+ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta.errormessage = "O campo Chave de Acesso é obrigatório.";
+ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta.display = "None";
+ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta.validationGroup = "completa";
+ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta.initialvalue = "";
+var ctl00_ContentPlaceHolder1_refChaveAcessoCompleta = document.all ? document.all["ctl00_ContentPlaceHolder1_refChaveAcessoCompleta"] : document.getElementById("ctl00_ContentPlaceHolder1_refChaveAcessoCompleta");
+ctl00_ContentPlaceHolder1_refChaveAcessoCompleta.controltovalidate = "ctl00_ContentPlaceHolder1_txtChaveAcessoCompleta";
+ctl00_ContentPlaceHolder1_refChaveAcessoCompleta.errormessage = "Chave de acesso inválida. A chave de acesso deve ter 44 dígitos.";
+ctl00_ContentPlaceHolder1_refChaveAcessoCompleta.display = "None";
+ctl00_ContentPlaceHolder1_refChaveAcessoCompleta.validationGroup = "completa";
+ctl00_ContentPlaceHolder1_refChaveAcessoCompleta.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_refChaveAcessoCompleta.validationexpression = "[0-9]{44}";
+var ctl00_ContentPlaceHolder1_rfvCaptcha = document.all ? document.all["ctl00_ContentPlaceHolder1_rfvCaptcha"] : document.getElementById("ctl00_ContentPlaceHolder1_rfvCaptcha");
+ctl00_ContentPlaceHolder1_rfvCaptcha.controltovalidate = "ctl00_ContentPlaceHolder1_txtCaptcha";
+ctl00_ContentPlaceHolder1_rfvCaptcha.errormessage = "O campo Código da Imagem é obrigatório.";
+ctl00_ContentPlaceHolder1_rfvCaptcha.display = "None";
+ctl00_ContentPlaceHolder1_rfvCaptcha.validationGroup = "completa";
+ctl00_ContentPlaceHolder1_rfvCaptcha.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_rfvCaptcha.initialvalue = "";
+var ctl00_ContentPlaceHolder1_revCaptcha = document.all ? document.all["ctl00_ContentPlaceHolder1_revCaptcha"] : document.getElementById("ctl00_ContentPlaceHolder1_revCaptcha");
+ctl00_ContentPlaceHolder1_revCaptcha.controltovalidate = "ctl00_ContentPlaceHolder1_txtCaptcha";
+ctl00_ContentPlaceHolder1_revCaptcha.errormessage = "O campo Código da Imagem deve ter 6 caracteres.";
+ctl00_ContentPlaceHolder1_revCaptcha.display = "None";
+ctl00_ContentPlaceHolder1_revCaptcha.validationGroup = "completa";
+ctl00_ContentPlaceHolder1_revCaptcha.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_revCaptcha.validationexpression = "[a-zA-Z0-9]{6}";
+var ctl00_ContentPlaceHolder1_vdsErros = document.all ? document.all["ctl00_ContentPlaceHolder1_vdsErros"] : document.getElementById("ctl00_ContentPlaceHolder1_vdsErros");
+ctl00_ContentPlaceHolder1_vdsErros.validationGroup = "completa";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+(function(id) {
+    var e = document.getElementById(id);
+    if (e) {
+        e.dispose = function() {
+            Array.remove(Page_ValidationSummaries, document.getElementById(id));
+        }
+        e = null;
+    }
+})('ctl00_ContentPlaceHolder1_vdsErros');
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.AutoCompleteBehavior, {"completionListCssClass":"popupBusca","delimiterCharacters":"(),.! ","id":"ctl00_aceAutoCompletarBusca","minimumPrefixLength":1,"serviceMethod":"ListarAutocompletarCampoPesquisar","servicePath":"AutoCompletarBusca.asmx"}, null, null, $get("ctl00_txtPalavraChave"));
+});
+
+document.getElementById('ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_rfvChaveAcessoCompleta'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_refChaveAcessoCompleta').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_refChaveAcessoCompleta'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_rfvCaptcha').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_rfvCaptcha'));
+}
+
+document.getElementById('ctl00_ContentPlaceHolder1_revCaptcha').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_revCaptcha'));
+}
+//]]>
+</script>
+</form>
+    </div>
+</body>
+
+</html>
+

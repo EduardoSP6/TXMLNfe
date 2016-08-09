@@ -1,0 +1,44 @@
+<!--
+################################################
+# xDevStudio Project - xdev@kssoftware.com.br  #
+# Created @ 09/08/2016 10:53:32                #
+#                                              #
+### Standard xDev Config - Layout v1.5 #########
+-->
+<project>
+   <option compiler="480298">
+   <option outputname="DownloadXMLNFe">
+   <option targettype="EXE">
+   <option outputpath="">
+   <option root="($)">
+   <option runpath="">
+   <option runparams="">
+   <option pathch="">
+   <option pathlib="">
+   <option pathobj="">
+   <option pathtooutput="obj">
+   <option defines="">
+   <option webframework="">
+   <option webrootdir="">
+   <option documentroot="">
+   <option custombrowser="">
+   <option makeincfile="Não">
+   <option taskprepare="">
+   <option taskfinalize="">
+   <option taskgroupprepare="">
+   <option taskgroupfinalize="">
+
+   <compilerparam name="FiveWin32.xCompiler">
+      <option presetsname="648801,480298">
+   </compilerparam>
+
+   <unit filename="C:\xhb121\lib\ct.lib" compile="Sim">
+   <unit filename="C:\xhb121\lib\dbfcdx.lib" compile="Sim">
+   <unit filename="C:\xhb121\lib\pcrepos.lib" compile="Sim">
+   <unit filename="C:\bcc582\Lib\PSDK\psapi.lib" compile="Sim">
+   <unit filename="MAIN.PRG" main="true" compile="Sim">
+   <unit filename="res\res.res" compile="Sim">
+   <unit filename="TXmlNFe.PRG" compile="Sim">
+   <unit filename="W32OLE.PRG" compile="Sim">
+   <unit filename="C:\xhb121\lib\tip.lib" compile="Sim">
+</project>

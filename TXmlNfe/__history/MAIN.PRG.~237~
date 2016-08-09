@@ -1,0 +1,170 @@
+#Include "Fivewin.ch"
+#include "hbxml.ch"
+
+STATIC oDownXml, oXmlEnv , cSerialCert, nDataVal
+
+
+********************************************************************************
+FUNCTION Main()
+
+	LOCAL oAct, oActdo 
+	LOCAL oImg
+	LOCAL cCapt := SPACE(06)
+	PRIVATE cChave := SPACE(45)
+	PRIVATE cCnpj	:= SPACE(14)
+
+
+//   cChave:= "33150202370420000195550000000000011000007001"
+   cCnpj := "02370420000195"
+   
+ 	
+//	oImg:= BaixaCaptcha()
+	
+	DEFINE FONT oFont  NAME "Arial" SIZE 0, -14 BOLD 
+	DEFINE FONT oFont2 NAME "Arial" SIZE 0, -11 BOLD 
+	
+	DEFINE DIALOG oDlg RESOURCE "DADOS-NFE"
+	
+	REDEFINE GET oGet10 VAR cChave PICTURE "@K" ID 10 OF oDlg UPDATE FONT oFont2
+	REDEFINE GET oGet11 VAR cCnpj               ID 11 OF oDlg UPDATE FONT oFont
+	REDEFINE GET oGet12 VAR cCapt               ID 12 OF oDlg UPDATE FONT oFont
+	
+	REDEFINE IMAGE oImg30 FILENAME oImg ID 30 OF oDlg UPDATE
+	
+	* baixar
+	REDEFINE BUTTON oBt50 ID 50 OF oDlg ACTION BaixaXml() 
+
+	* atualizar imagem
+	REDEFINE BUTTON oBt52 ID 52 OF oDlg ACTION( oImg:= BaixaCaptcha(), oImg30:LoadImage( , oImg), oImg30:Refresh() ) 
+	
+			
+	ACTIVATE DIALOG oDlg CENTERED	
+	
+	RELEASE FONT oFont, oFont2
+		
+//	oAct:= CreateObject("InternetExplorer.Application")
+
+//	oAct:Visible    := .t.   // Apresenta o Browser
+//	oAct:ToolBar    := .t.   // Desativa a barra de ferramentas
+//	oAct:StatusBar  := .t.   // Desativa a barra de status
+//	oAct:MenuBar    := .t.   // desativa a barra de menu
+//	oAct:Silent     := .t.
+
+//	oAct:Navigate( cUrl )
+
+//	hWnd:= oAct:hWnd
+//	ShowWindow(hWnd, 3 )   //SW_MAXIMIZE=3 SW_NORMAL=1 SW_MINIMIZE=6
+//	BringWindowToTop(hWnd)
+	
+//	While oAct:Busy
+//		syswait(.2)
+//	End
+
+//	oActdo:= oAct:Document()
+//	oActdo:All:Item("ctl00$ContentPlaceHolder1$txtChaveAcessoCompleta",0):Value:= cChave
+
+//	oActdo:All:Item("ctl00$ContentPlaceHolder1$txtCaptcha",0):Focus()
+
+
+RETURN NIL
+
+********************************************************************************
+FUNCTION BaixaXml()
+
+	LOCAL verDados:= "1.00" // versao do leiaute
+	LOCAL tbAmb:= "1"       // Identificação do Ambiente: 1=Produção /2=Homologação
+	LOCAL cUf  := "33" 	   // codigo da UF: São Paulo = 35 ; Rio de Janeiro = 33
+	
+   
+
+   * cria o objeto
+   oObj:= TXmlNfe():NEW(tbAmb, cUf, verDados, ALLTRIM(cChave), cCnpj)
+ 	
+ 	IF oObj == NIL
+ 	   MsgStop("Falha ao criar objeto")
+ 		RETURN NIL
+ 	ENDIF
+
+ 	oObj:CriaXmlEnvio()
+
+	oObj:BaixarXmlNfe()
+ 
+	oObj:END()
+ 	
+RETURN NIL
+
+********************************************************************************
+FUNCTION BaixaCaptcha_OLD()
+
+	* Funcao que baixa a imagem captcha
+
+	LOCAL ErroNET:= .F.
+	LOCAL cUrl, oPg, cBuf
+	LOCAL cImage:= ""
+	
+	IF !IsInternet()
+	   MsgInfo("Equipamento sem conexão com a Internet")
+		RETURN cImage
+	ENDIF
+
+	oPg:=CreateObject("Microsoft.XMLHTTP")
+	cUrl:= "https://www.nfe.fazenda.gov.br/scripts/srf/intercepta/captcha.aspx?opt=image"
+	oPg:Open("GET", cUrl, .F.)
+	
+	* Tenta enviar a requisicao
+	Try
+		oPg:Send()
+	Catch oError
+		ErroNET:=.T.
+	End Try
+
+	IF !ErroNET
+		* obtem o retorno da requisicao
+		cBuf := oPg:responseBody
+		* grava o arquivo de imagem
+		memowrit("./captcha.jpg", cBuf)
+	
+	   cImage:= "./captcha.jpg"
+	
+	ELSE
+		MsgInfo("Ocorreu um erro de conexão com o website da receita federal. Tente mais tarde.")   
+	ENDIF
+
+RETURN cImage
+
+********************************************************************************
+FUNCTION BaixaCaptcha()
+
+	* Funcao que baixa a imagem captcha
+
+	LOCAL ErroNET:= .F.
+	LOCAL cUrl, oServer, cBuf
+	LOCAL cImage:= ""
+	
+	IF !IsInternet()
+	   MsgInfo("Equipamento sem conexão com a Internet")
+		RETURN cImage
+	ENDIF
+
+	cUrl := "http://www.nfe.fazenda.gov.br/portal/consulta.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8="
+
+	oServer:=CreateObject("MSXML2.ServerXMLHTTP.6.0")
+	
+   Try
+      oServer:Open( "GET", cUrl, .f. )
+      oServer:SetRequestHeader( "Content-Type", "application/x-www-form-urlencoded" )
+      oServer:SetRequestHeader( "Connection", "keep-alive" )
+      oServer:Send()
+      oServer:WaitForResponse( 10000 )
+   Catch
+      MsgInfo('Erro na Conexão com o Site')
+      Return .f.
+   End
+   
+*	memowrit(".\html.txt", oServer:ResponseBody)
+
+*   cFile:= hb_base64Decode(cFile, cCodigo)
+   
+RETURN cImage
+
+********************************************************************************

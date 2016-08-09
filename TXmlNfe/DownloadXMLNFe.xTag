@@ -1,0 +1,60 @@
+<!--
+################################################
+# xDevStudio Project - xdev@kssoftware.com.br  #
+# Created @ 09/08/2016 11:56:22                #
+#                                              #
+### Standard xDev TagList - Layout v1.5 ########
+-->
+<taglist>
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="UnInitialize_Ole" args=" " scope="PUBLIC" type="ptProcedure" line="1441">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="TOLEAUTOX_ONERROR" args=" " scope="PUBLIC" type="ptFunction" line="1238">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OleGetProperty" args="<pDisp>, <DispID>, <pDispParams> " scope="PUBLIC" type="ptCFunction" line="1221">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OleInvoke" args="<pDisp>, <DispID>, <pDispParams> " scope="PUBLIC" type="ptCFunction" line="1204">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OleSetProperty" args="<pDisp>, <DispID>, <pDispParams> " scope="PUBLIC" type="ptCFunction" line="1166">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OLERELEASEOBJECT" args=" " scope="PUBLIC" type="ptFunction" line="1157">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="GETOLEOBJECT" args=" " scope="PUBLIC" type="ptFunction" line="1095">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="CREATEOLEOBJECT" args=" " scope="PUBLIC" type="ptFunction" line="1044">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="MESSAGEBOX" args=" " scope="PUBLIC" type="ptFunction" line="1037">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="WOLE2TXTERROR" args=" " scope="PUBLIC" type="ptFunction" line="1030">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="WOle2TxtError" args=" " scope="PUBLIC" type="ptCFunction" line="950">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="WOLEERROR" args=" " scope="PUBLIC" type="ptFunction" line="943">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OLEEXCEPTIONDESCRIPTION" args=" " scope="PUBLIC" type="ptFunction" line="930">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OLEEXCEPTIONSOURCE" args=" " scope="PUBLIC" type="ptFunction" line="917">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="WOLESHOWEXCEPTION" args=" " scope="PUBLIC" type="ptFunction" line="899">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="RetValue" args=" " scope="PUBLIC" type="ptCFunction" line="715">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="FreeParams" args="<pDispParams> " scope="PUBLIC" type="ptCFunction" line="574">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="GetParams" args="<pDispParams> " scope="PUBLIC" type="ptCFunction" line="348">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="WideToAnsi" args="<wString> " scope="PUBLIC" type="ptCFunction" line="324">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="AnsiToSysString" args="<cString> " scope="PUBLIC" type="ptCFunction" line="306">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="DblToDate" args="<nDate> " scope="PUBLIC" type="ptCFunction" line="294">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="DateToDbl" args="<cDate> " scope="PUBLIC" type="ptCFunction" line="283">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OLE_UNINITIALIZE" args=" " scope="PUBLIC" type="ptFunction" line="277">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="OLE_INITIALIZE" args=" " scope="PUBLIC" type="ptFunction" line="266">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="Collection" args="<xIndex>, <xValue> " scope="PUBLIC" type="ptMethod" line="197">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="Invoke" args="<.><.><.> " scope="PUBLIC" type="ptMethod" line="190">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="GetActiveObject" args="<cClass> " scope="PUBLIC" type="ptMethod" line="139">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="Release" args=") <CLASS><TOleAutoX> " scope="PUBLIC" type="ptProcedure" line="130">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="New" args="<uObj>, <cClass> " scope="PUBLIC" type="ptMethod" line="60">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="ForceSymbols" args=" " scope="PUBLIC" type="ptFunction" line="50">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="xhb_GetActiveObject" args="<cString> " scope="PUBLIC" type="ptFunction" line="29">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="xhb_CreateObject" args="<cString>, <cLicense> " scope="PUBLIC" type="ptFunction" line="23">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="xhb_GetActiveObject" args="<cString> " scope="PUBLIC" type="ptFunction" line="11">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\W32OLE.PRG" name="xhb_CreateObject" args=" " scope="PUBLIC" type="ptFunction" line="8">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="RemoveHeadXml" args="<cFile> " scope="PUBLIC" type="ptFunction" line="542">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="EncodingXml" args="<cFile> " scope="PUBLIC" type="ptFunction" line="524">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="FindTag" args="<cTag>, <xmlDoc> " scope="PUBLIC" type="ptFunction" line="496">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="BaixarXmlNfe" args=" " scope="PUBLIC" type="ptMethod" line="325">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="CriaXmlEnvio" args=" " scope="PUBLIC" type="ptMethod" line="254">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="pegaPropriedadesCertificado" args=" " scope="PUBLIC" type="ptMethod" line="226">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="pegaCNCertificado" args=" " scope="PUBLIC" type="ptMethod" line="195">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="pegaObjetoCertificado" args=" " scope="PUBLIC" type="ptMethod" line="171">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="setRegVar" args="<nKey>, <cRegKey>, <cSubKey>, <uValue> " scope="PUBLIC" type="ptMethod" line="162">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="UAC" args="<nAtivar> " scope="PUBLIC" type="ptMethod" line="147">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="escolheCertificado" args="<lTentaRegistrar> " scope="PUBLIC" type="ptMethod" line="82">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="END" args=" " scope="PUBLIC" type="ptMethod" line="75">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\TXmlNFe.PRG" name="NEW" args="<tAmb>, <codUf>, <cVer>, <cKey>, <cDoc> " scope="PUBLIC" type="ptMethod" line="64">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\MAIN.PRG" name="BaixaCaptcha" args=" " scope="PUBLIC" type="ptFunction" line="136">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\MAIN.PRG" name="BaixaCaptcha_OLD" args=" " scope="PUBLIC" type="ptFunction" line="97">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\MAIN.PRG" name="BaixaXml" args=" " scope="PUBLIC" type="ptFunction" line="72">
+   <tag filename="C:\Sistemas Fivewin\TXmlNfe\MAIN.PRG" name="Main" args=" " scope="PUBLIC" type="ptFunction" line="7">
+</taglist>

@@ -1,0 +1,41 @@
+	LOCAL cCN, cXML, oServerWS, oDOMDoc, cXMLResp, cMsgErro, aRetorno := hash()
+	LOCAL aRet, aProp , nDataVal, nSerial, oCert, nodeSignature , cTagSig
+	LOCAL URI:= "Lote01"
+	
+	SET DATE TO BRITISH
+	SET CENTURY ON
+		 
+	// seleciona o certificado
+	aRet:= ::escolheCertificado(.t.)
+	
+	IF aRet['OK'] 
+		::cSerialCert:= aRet['Serial']  
+	ELSE
+	   ? aRet['MsgErro']
+		RETURN NIL
+	ENDIF
+	
+   aProp:= ::pegaPropriedadesCertificado(nSerial)
+
+//	? aProp['OK'] 
+//	? aProp['SerialNumber']    // numero do serial
+//	? aProp['ValidToDate']     // data e hora do vencimento
+//	? aProp['HasPrivateKey']   // se tem chave privada
+//	? aProp['SubjectName']     // CN completo
+//	? aProp['IssuerName']      // CN da empresa que cadastrou
+//	? aProp['Thumbprint']      // parece chave publica = pesquisar depois
+
+	* Se status do certificado nao estiver ok aborta a operacao
+	IF ! aProp['OK'] 
+		RETURN NIL
+	ENDIF
+		
+	* Testa data de validade do certificado
+	nDataVal:= ALLTRIM(LEFT(DTOC(aProp['ValidToDate']),10)) 
+	nDataVal:= CTOD(nDataVal)
+	
+	* se a data de validade expirou aborta a operacao
+//	IF nDataVal < DATE()
+//	   MsgInfo("Data do certificado digital expirada em "+DTOC(nDataVal) , "Aviso")
+//		RETURN NIL
+//	ENDIF

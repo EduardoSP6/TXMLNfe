@@ -1,0 +1,274 @@
+/*
+ * Teste para leitura de nfe da web
+ * Autor  : Fernando Athayde
+ * Melhorias : Roberto Evangelista
+ */
+
+function Main()
+ private cMaskChave := '99-9999-99.999.999/9999-99-99-999-999.999.999-999.999.999-9'
+ private lLoop := .T., cTextoNFE := ""
+ private cChave := space( 44 ), cCaptCha := space( 4 )
+ private cURL_ConsultaCompleta := "http://www.nfe.fazenda.gov.br/PORTAL/consulta.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8="
+ private oIE := NIL
+ set score off
+ set console off
+ setcolor( '+w/b' )
+ clear
+ @ 001, 001 say ' Chave:'
+ @ 002, 001 say 'CaptCha:'
+ @ 003, 001 to 023, 078
+ cChave   := '35110709339936000205550140000601181554427688'
+ oIE    := Win_OleCreateObject( 'InternetExplorer.Application' )
+ oIE:Visible := .F.
+ 
+ while( lLoop )
+   cCaptCha := space( 4 )
+   setcolor( '+w/b, +w/n,,, +w/b' )
+   @ 004, 002 clear to 022, 077
+   
+   if( oIE == NIL )
+    
+    if( alert( { 'Erro. IExplorer indisponivel.', ;
+           Win_OleErrorText()      , ;
+           ''              , ;
+           'Deseja continuar?'      }, { 'Sim', 'Nao' } ) == 1 )
+      oIE := Win_OleCreateObject( 'InternetExplorer.Application' )
+    else
+      lLoop := .F.
+    endif
+    
+   else
+    oIE:Visible := .T.
+    lOk := AbreFormularioNFe( cURL_ConsultaCompleta, "Inicio" )
+    iif( lOk, msg( 'Mensagem: Obtendo o CaptChar, Aguarde...' ), NIL )
+    lOk := iif( lOk, AbreCaptCha( cURL_ConsultaCompleta ), lOk )
+    keyboard chr( 0 )
+    
+    if( lOk )
+      setcolor( 'n/w, +w/n,,, n/w,, n/w' )
+      @ 001, 009 get cChave picture '@R@K ' + cMaskChave when msg( 'Mensagem: Digite a chave da NFe' )
+      @ 002, 009 get cCaptCha picture '@K'        when msg( 'Mensagem: Digite o CaptChar' )
+      
+      read
+    endif
+   
+    if( lastkey() == 27 )
+      lLoop := .F.
+    else
+      AbreFormularioNFe( cURL_ConsultaCompleta, "Preenchimento", cChave, cCaptCha, @cTextoNFE )
+      
+      if( !empty( cTextoNFE ) )
+       setcolor( '+gr/b' )
+       memoedit( cTextoNFE, 004, 002, 021, 77, .F.,, 1000, 3 )
+      endif
+      
+    endif
+    
+   endif
+ 
+ end while
+ 
+ iif( oIE != NIL, oIE:Quit(), NIL )
+return( NIL )
+
+/****
+ */
+function AbreFormularioNFe( cURL_Consulta, cTipo, cChave, cCaptChar, cTexto )
+ local nCol, nTempo, lOk := .T., cHtml := ""
+ 
+ if( lower( cTipo ) == "inicio" )
+   oIE:Visible := .F.
+   oIE:menubar := .F.
+   oIE:toolbar := .F.
+   oIE:statusbar := .F.
+   oIE:Navigate2( cURL_Consulta )
+   
+   while( oIE:ReadyState != 4 )
+    HB_IDLESLEEP( 0 )
+   end while
+   
+ else
+   cTexto   := ""
+   oIE:Visible := .F.
+   oIE:GoBack()
+ 
+   while( oIE:ReadyState != 4 )
+    HB_IdleSleep( 0 )
+   end while
+ 
+   lOk := ( cURL_Consulta == oIE:LocationURL )
+   
+   while( oIE:Busy )
+    HB_IdleSleep( 0 )
+   end while
+ 
+   if( lOk )
+    oIE:Document:All( 'ctl00$ContentPlaceHolder1$txtChaveAcessoCompleta', 0 ):Value := cChave
+    oIE:Document:All( 'ctl00$ContentPlaceHolder1$txtCaptcha'      , 0 ):Value := cCaptcha
+    oIE:Document:All( 'ctl00$ContentPlaceHolder1$btnConsultar'     , 0 ):click()
+    
+    nTempo := TString( seconds() )
+    nCol := col()
+    
+    while( oIE:Busy .and. lastkey() != 27 )
+      HB_IdleSleep( 0 )
+      msg( 'Mensagem: ' + ElapTime( nTempo, TString( seconds() ) ) )
+      nTecla := inkey()
+    end while
+   
+    if( oIE:LocationURL == cURL_Consulta )//nao preencheu corretamente
+      msg( 'Mensagem: Codigo invalido!' )
+      lOk := .F.
+    endif
+    
+    if( lOk )
+      oElemento := oIE:Document
+      aElemento := { { "ContentPlaceHolder1_tcnConsultaCompleta_tpnNFe"      , "CABECALHO DA NFE"   }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_ptnEmitente"    , "DADOS DO EMITENTE"   }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnDestinatario"  , "DADOS DO DESTINATARIO" }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnProdutosServicos", "PRODUTOS / SERVICOS"  }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnTotais"     , "TOTAIS"        }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnTotais"     , "COMERCIO EXTERIOR"   }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnTransporte"   , "TRANSPORTE"      }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnCobranca"    , "COBRANCA"       }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnInfoAdicionais" , "INFORMACOES ADICIONAIS" }, ;
+             { "ContentPlaceHolder1_tcnConsultaCompleta_tpnAvulsa"     , "AVULSA"        } }
+            
+      if( oElemento != NIL )
+    
+       for nA := 1 to len( aElemento )
+         // Captura o HTML da Tabela Form Cabecalho da NFE
+         oID := oElemento:getElementById( aElemento[ nA, 1 ] )
+      
+         if( oID != NIL )
+          // Retorna o HTML do Objeto
+          cHtml := oID:innerHtml
+          aDados := ExtraiDados( cHtml )
+          cTexto += "---------------------- " + aElemento[ nA, 2 ] + " ---------------------------" + HB_OSNewLine()
+       
+          for nB := 1 to len( aDados )
+            cTexto += aDados[ nB, 1 ] + ": " + aDados[ nB, 2 ] + HB_OSNewLine()
+          next nB
+       
+         endif
+       
+         cTexto += iif( nA != len( aElemento ), HB_OSNewLine(), "" )
+       next nA
+      
+       nFile := fCreate( "nota.hmtl" )
+       fWrite( nFile, cHtml, len( cHtml ) )
+       fClose( nFile )
+      endif
+    
+    endif
+    
+   endif
+ 
+ endif
+  
+return( lOk )
+
+/****
+ * Abre a imagem CaptChar
+ */
+function AbreCaptcha( cURL_Consulta )
+ local lOk := .F.
+ 
+ if( oIE:LocationURL == cURL_Consulta )
+   lOk    := .T.
+   oIE:left  := 0
+   oIE:top  := 0
+   oIE:height := 180
+   oIE:width := 260
+   oIE:Visible := .T.
+   oIE:Navigate( "https://www.nfe.fazenda.gov.br/scripts/srf/intercepta/captcha.aspx?opt=image" )
+ 
+   while( oIE:ReadyState != 4 )
+    HB_IdleSleep( 0 )
+   end while
+ 
+ endif
+ 
+return( lOk )
+
+/****
+ * Função que extrai os dados do HTML e retorno num array[ campo, valor ]
+ */
+function ExtraiDados( cHtml )
+ local nLinha, cLinha, aDados := {}, cField := '', cValues := '', nItem := 0
+ local cTField := '<SPAN class=TextoFundoBrancoNegrito>', ;
+    cTValue := '<SPAN class=linha>'
+ 
+ for nLinha := 1 to mlcount( cHtml )
+   cValues := ''
+   nPos  := 0
+   cLinha := alltrim( memoline( cHtml, 1000, nLinha ) )
+         
+   if( '<TD ' $ cLinha )
+    cLinha := strtran( cLinha, '<TD ', '' ) ; cLinha := strtran( cLinha, '</TD>' , '' )
+    cLinha := strtran( cLinha, '<I>' , '' ) ; cLinha := strtran( cLinha, '</I>' , '' ) 
+    cLinha := strtran( cLinha, '<' + 'BR' + '>', '' ) ; cLinha := strtran( cLinha, '', '' )
+    lItem := ( !( cTField $ cLinha ) .and. ( cTValue $ cLinha ) )
+    
+    if( cTField $ cLinha .or. cTValue $ cLinha )
+      
+      if( !lItem )
+       cField := left( cLinha, at( '</SPAN>', cLinha ) + 7 ) 
+       cLinha := substr( cLinha, len( cField ) )
+       cField := substr( cField, at( cTField, cField ) + len( cTField ) )
+       cField := left( cField, at( '</SPAN>', cField ) - 1 )
+      else
+       cField := 'ITEM'
+      endif
+      
+      while( cTValue $ cLinha )
+      
+       if( cTValue $ cLinha )
+         cValue := left( cLinha, at( '</SPAN>', cLinha ) + 7 )
+         cLinha := substr( cLinha, len( cValue ) )
+         cValue := substr( cValue, at( cTValue, cValue ) + len( cTValue ) )
+         cValue := left( cValue, at( '</SPAN>', cValue ) - 1 )
+         cValues += cValue
+       else
+         exit
+       endif
+       
+       cValues += iif( cTValue $ cLinha, " | ", "" )
+      end while
+      
+      if( cField == 'ITEM' .and. len( aDados ) > 0 .and. aDados[ len( aDados ), 1 ] == "ITEM" )
+       nPos1 := len( aDados )
+      else
+       nPos1 := 0 ; nPos++
+      endif
+       
+       
+      if( !empty( cField ) .and. !empty( cValues ) .and. nPos1 == 0 )
+       aadd( aDados, { cField, cValues, nPos } )
+      elseif( !empty( cField ) .and. !empty( cValues ) .and. nPos1 > 0 )
+       aDados[ nPos1, 2 ] += " | " + cValues 
+      endif
+
+    endif
+          
+   endif
+         
+ next nLinha
+ 
+return( aDados )
+
+/****
+ * Função de mensagem
+ */
+function msg( cMsg, nLinha, nColuna, cCor )
+ local oldCor
+ cMsg  := iif( cMsg  == NIL, ''  , cMsg )
+ nLinha := iif( nLinha == NIL, 024 , nLinha )
+ nColuna := iif( nColuna == NIL, 001 , nColuna )
+ cCor  := iif( cCor  == NIL, '+w/b', cCor )
+ oldCor := setcolor( cCor )
+ @ 024, 000 clear
+ devPos( nLinha, nColuna )
+ devOut( cMsg )
+ setcolor( oldCor )
+return( .T. )

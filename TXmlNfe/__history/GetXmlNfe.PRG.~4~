@@ -1,0 +1,154 @@
+/*********************************************************
+ * Classe original TSintegra
+ * Data : 10/02/2011 | 02:36 AM
+ * Autor: Lailton Fernando Mariano - <developer@lailton.com.br>
+
+
+ * Função      : Classe para abrir Download do Xml
+ * Data        : 20/03/2014 14:00:00 Por : Alain/Rancharia
+
+ * Como Usar :
+	oDownXml:=ClassDownloadXml():New()
+	oDownXml:Consulta()
+	Return Nil
+**********************************************************/
+
+#Include "Fivewin.ch"
+//----------------------------------------------------------------------------------------------------------------------//
+Function GetDownloadXml(); Retu( ClassDownloadXml():New())
+//----------------------------------------------------------------------------------------------------------------------//
+Class ClassDownloadXml
+
+	Data nTimeOut  Init 200 // 2 minutos
+	Data lDownload, lError, cError, lOk
+	Data cUrl,cPost,cView
+	Method New() Constructor
+	Method Consulta(cChave)
+	Method DownloadComplete(oAct)
+	Method Clear() INLINE DelUrlCache({::cPost,::cView})
+
+EndClass
+
+//----------------------------------------------------------------------------------------------------------------------//
+Method New() Class ClassDownloadXml
+
+	Local aUrls
+	aUrls := {"http://www.nfe.fazenda.gov.br/portal/",;
+			 "consulta.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8=",;
+			 "consultaCompleta.aspx?tipoConteudo=XbSeqxE8pl8="}
+	
+	::cUrl  :=   aUrls[1]
+	::cPost := ::cUrl+aUrls[2]
+	::cView := ::cUrl+aUrls[3]
+
+Return Self
+//----------------------------------------------------------------------------------------------------------------------//
+Method Consulta(cchave) Class ClassDownloadXml
+
+	Local oDlg, oAct
+	Local nTimer
+
+	If IsInternet() == .F.
+		MsgStop("Sem conexão com a internet !")
+		Return {}
+	Else
+		::Clear()
+	EndIf
+
+	::lDownload := .F.
+	::lError    := .F.
+	::lOk       := .T.
+
+	Define Dialog oDlg From 0,0 To 600,664 Pixel Title "[ Download do Documento Xml - Portal Nacional ] - Necessita do Certificado" //Style WS_CAPTION
+	oDlg:lHelpIcon:=.F.
+	Activate Dialog oDlg NoWait Centered
+
+	oAct:= TActivex():New(oDlg,"Shell.Explorer",00,0,664,600)
+	oAct:bOnEvent := {|cEv|If(cEv=="DownloadComplete",::DownloadComplete( oAct ),Nil)}
+	oAct:Silent   := .f.
+	oAct:Navigate( ::cPost )
+	oAct:SetFocus()
+
+	*WHILE oAct:Busy
+	  SysWait(.2)
+	*ENDDO
+
+	oActdo:=oAct:Document()
+	oActdo:All:Item("ctl00$ContentPlaceHolder1$txtChaveAcessoCompleta",0):Value:=cchave
+	
+	nTimer:=Seconds()
+	While !::lDownload
+		If !IsWindowVisible( oDlg:hWnd )
+			::lDownload := .T.
+			::lError    := .T.
+			::cError    :=  "Consulta Cancelada !"
+		ElseIf !IsInternet()
+			::lDownload := .T.
+			::lError    := .T.
+			::cError    := "Perda de conexao com a internet !"
+		ElseIf( Seconds()-nTimer ) >= ::nTimeOut
+	                If MsgYesNo( "O Processo esta Lento, Deseja Continuar Tentando ?","Confirmação")
+	                   nTimer:=Seconds()
+	                Else
+			   ::lDownload := .T.
+	    		   ::lError    := .T.
+			   ::cError    := "Tempo limit esgotado !"
+	                Endif
+		EndIf
+		SysRefresh()
+	End
+
+	Try
+	Catch oE
+	        ::lDownload := .T.
+		::lError := .T.
+		::cError := "Falha no recebimento dos dados!"
+	End
+
+	oDlg:End()
+	SysRefresh()
+
+	If ::lDownload .and. !::lError
+	   MsgInfo("Download Executado Com Sucesso!!!","AVISO DE ALERTA")
+	Else
+	   MsgStop(::cError,"Atenção")
+	EndIf
+
+Return {}
+
+//----------------------------------------------------------------------------------------------------------------------//
+Method DownloadComplete(oAct) Class ClassDownloadXml
+
+	Local cHTTP:= oAct:LocationURL
+	if ::cview<>chttp;;endif
+	If ( ::cView == cHTTP )
+	   IF ::lOk
+	      ::lOk:=.F.
+	      MsgRun('Pesquisando Certificado e Executando Processo de Download','Página Encontrada...')
+	      oact:Document:all:Item("ctl00$ContentPlaceHolder1$btnDownload"):click()
+	   Else
+	      ::lDownload :=.T.
+	   endif
+	ElseIf SUBS(CHTTP,1,105)=="https://www.nfe.fazenda.gov.br/PORTAL/downloadNFe.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8=&a="
+	      ::cError    := "O CNPJ ou CPF do certificado não está autorizado a fazer o download do documento"
+	      ::lError    := .T.
+	      ::lDownload := .T.
+	EndIf
+
+Return nil
+//----------------------------------------------------------------------------------------------------------------------//
+
+Static Function DelUrlCache( aUrl )
+Return AEval( aUrl, {|nX,nNum| DeleteUrlCacheEntry( aUrl[nNum] )} )
+Return Nil
+
+//----------------------------------------------------------------------------------------------------------------------//
+
+EXIT PROCEDURE SAIR
+	PostQuitMessage( 0 )
+	__Quit()
+Return Nil
+
+//----------------------------------------------------------------------------------------------------------------------//
+DLL Static Function DeleteUrlCacheEntry(lpszUrlName AS STRING) AS LONG PASCAL FROM "DeleteUrlCacheEntryA" LIB "wininet.dll"
+//----------------------------------------------------------------------------------------------------------------------//
